@@ -235,3 +235,5 @@ samples/ios/Continote/Continote/FCNContinue.m
 # Misc.
 .DS_Store
 *.swp
+
+node_modules/
