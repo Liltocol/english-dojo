@@ -237,3 +237,4 @@ samples/ios/Continote/Continote/FCNContinue.m
 *.swp
 
 node_modules/
+.firebase
