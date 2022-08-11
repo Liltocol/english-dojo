@@ -1,30 +1,29 @@
-import 'dart:html';
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class ProblemView extends StatelessWidget {
-  final _firestore = FirebaseFirestore.instance;
+  const ProblemView({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: buildProblemList(),
-    );
+    return  buildProblemList();
   }
 
   Widget buildProblemList() {
-    return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('test-problem').snapshots(),
+    return MaterialApp(
+      home:Scaffold(
+        appBar: AppBar(title: const Text('Problem')),
+        body: SafeArea(
+      child:StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('test-problem').snapshots(),
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
           return const Center(
-            child: const CircularProgressIndicator(),
+            child: CircularProgressIndicator(),
           );
         }
+
         if (snapshot.hasError) {
           return const Text('Something went wrong');
         }
@@ -33,13 +32,16 @@ class ProblemView extends StatelessWidget {
             final data = document.data()! as Map<String, dynamic>;
             return Card(
               child: ListTile(
-                title: Text(data['japanese']),
+                title: Text(data['english']),
+                subtitle: Text(data['japanese']),
               ),
             );
           }).toList(),
-          
         );
       },
+    ),
+      ),
+    ),
     );
   }
 }

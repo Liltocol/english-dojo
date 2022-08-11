@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Home(),
         '/problem_import': (context) => ProblemImport(),
-        '/problem_view': (context) => ProblemView(),
+        '/problem_view': (context) => const ProblemView(),
       },
     );
   }
