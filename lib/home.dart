@@ -11,11 +11,11 @@ class Home extends StatelessWidget {
         ),
         body: Center(
             child: Column(children: <Widget>[
-          ElevatedButton(
-              child: const Text('問題取り込み'),
-              onPressed: () {
-                Navigator.of(context).pushNamed('/problem_import');
-              }),
+          // ElevatedButton(
+          //     child: const Text('問題取り込み'),
+          //     onPressed: () {
+          //       Navigator.of(context).pushNamed('/problem_import');
+          //     }),
           ElevatedButton(
               child: const Text('問題を表示する'),
               onPressed: () {
