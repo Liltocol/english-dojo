@@ -32,7 +32,8 @@ class ProblemView extends StatelessWidget {
             final data = document.data()! as Map<String, dynamic>;
             return Card(
               child: ListTile(
-                title: Text(data['japanese']),
+                title: Text(data['english']),
+                subtitle: Text(data['japanese']),
               ),
             );
           }).toList(),
