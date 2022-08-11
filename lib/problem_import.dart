@@ -27,7 +27,7 @@ class ProblemImport extends StatelessWidget {
             List<String> elements = record.split(',');
             int i = 0;
             await _firestore
-                .collection('problem')
+                .collection('test-problem')
                 .add({
                   'number': recordCount++,
                   'school_year': elements[i++],
@@ -44,7 +44,7 @@ class ProblemImport extends StatelessWidget {
   }
 
   docDelete() async {
-    var collection = _firestore.collection('problem');
+    var collection = _firestore.collection('test-problem');
     var snapshots = await collection.get();
     for (var doc in snapshots.docs) {
       await doc.reference.delete();

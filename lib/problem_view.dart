@@ -18,7 +18,7 @@ class ProblemView extends StatelessWidget {
 
   Widget buildProblemList() {
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('problem').snapshots(),
+      stream: FirebaseFirestore.instance.collection('test-problem').snapshots(),
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
           return const Center(
