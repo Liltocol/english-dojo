@@ -11,8 +11,12 @@ class ProblemView extends StatelessWidget {
   }
 
   Widget buildProblemList() {
-    return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('test-problem').snapshots(),
+    return MaterialApp(
+      home:Scaffold(
+        appBar: AppBar(title: const Text('Problem')),
+        body: SafeArea(
+      child:StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('test-problem').snapshots(),
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
           return const Center(
@@ -34,6 +38,9 @@ class ProblemView extends StatelessWidget {
           }).toList(),
         );
       },
+    ),
+      ),
+    ),
     );
   }
 }
